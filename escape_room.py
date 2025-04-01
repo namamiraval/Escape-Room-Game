@@ -109,6 +109,7 @@ intro_messages = [
     "You spot a strange alien control panel nearby."
 ]
 
+
 # Display Intro Screen
 def intro_screen():
     for message in intro_messages:
@@ -153,6 +154,7 @@ def intro_screen():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 waiting = False  
  
+
 
 # Room 1 - Evolution Puzzle
 def evolution_puzzle():
