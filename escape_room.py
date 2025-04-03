@@ -155,7 +155,6 @@ def intro_screen():
                 waiting = False  
  
 
-
 # Room 1 - Evolution Puzzle
 def evolution_puzzle():
     shuffled_positions = [(150, 250), (300, 250), (450, 250), (600, 250)]
