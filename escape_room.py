@@ -389,20 +389,6 @@ def word_lock_puzzle():
 
                     user_input = ""  # Reset input after error
 
-                    '''
-                    # Show the message
-                    pygame.draw.rect(screen, BLACK, (100, 250, 600, 80))
-                    pygame.draw.rect(screen, BLUE, (100, 250, 600, 80), 3)
-                    msg_text = font.render(message, True, BLUE)
-                    screen.blit(msg_text, (120, 270))
-                    pygame.display.flip()
-                    pygame.time.delay(2000)  # Pause to show message
-
-                    if message == "Door Unlocked!":
-                        return  
-
-                    user_input = ""  # Reset input after error'
-                    '''
                 elif event.key == pygame.K_BACKSPACE:
                     user_input = user_input[:-1]  # Remove last character
                 else:
