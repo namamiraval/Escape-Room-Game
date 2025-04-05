@@ -161,7 +161,6 @@ def evolution_puzzle():
 
     correct_order = [0, 1, 2, 3]  # Correct order of human evolution
     clicked_order = []
-
     answer_correct = False
     error_message = ""
 
