@@ -99,16 +99,15 @@ def evolution_puzzle():
                             print("Puzzle Solved! Door Unlocks!")
                             return  
 
-
 # Intro messages
-intro_messages = [
+intro_messages =
+[
     "You wake up in a cold, sterile room.",
     "Your head is spinning. The air smells metallic.",
     "You have no memory of how you got here...",
     "But you know one thing – you need to escape.",
     "You spot a strange alien control panel nearby."
 ]
-
 
 # Display Intro Screen
 def intro_screen():
@@ -176,7 +175,6 @@ def evolution_puzzle():
         for i, pos in enumerate(shuffled_positions):
             screen.blit(human_stages[i], pos)
             positions_dict[i] = pos  
-
             if i in clicked_order:
                 pygame.draw.rect(screen, HIGHLIGHT, (pos[0] - 5, pos[1] - 5, 130, 170), 3)  # Highlight selected
 
@@ -272,8 +270,7 @@ def riddle_puzzle():
                 option_rect.left - padding_x,
                 option_rect.top - padding_y,
                 option_rect.width + (padding_x * 2),
-                option_rect.height + (padding_y * 2),
-            )
+                option_rect.height + (padding_y * 2), )
             pygame.draw.rect(screen, BLACK, box_rect)  # Draw black box
             screen.blit(option_text, option_rect)  # Render text on top
 
