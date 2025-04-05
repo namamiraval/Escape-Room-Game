@@ -48,7 +48,6 @@ human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
 def evolution_puzzle():
     shuffled_positions = [(150, 250), (300, 250), (450, 250), (600, 250)]
     random.shuffle(shuffled_positions)
-
     correct_order = [0, 1, 2, 3]  
     clicked_order = []
 
