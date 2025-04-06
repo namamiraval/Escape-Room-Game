@@ -47,8 +47,10 @@ human_stages = [
     pygame.image.load("stage3_mutated.png"),
     pygame.image.load("stage4_alien.png"),
 ]
+
 # Resize images for consistent display
 human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
+
 
 # Evolution Puzzle Images
 def evolution_puzzle():
@@ -104,6 +106,7 @@ def evolution_puzzle():
                             print("Puzzle Solved! Door Unlocks!")
                             return  
 
+
 # Intro messages
 intro_messages =
 [
@@ -113,6 +116,7 @@ intro_messages =
     "But you know one thing – you need to escape.",
     "You spot a strange alien control panel nearby."
 ]
+
 
 # Display Intro Screen
 def intro_screen():
