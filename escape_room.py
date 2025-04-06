@@ -333,6 +333,7 @@ word_choices = ["ESCAPE", "ALIEN", "VOID", "CRYPT", "SPACE"]
 door_open = pygame.image.load("door_open.png")
 door_open = pygame.transform.scale(door_open, (WIDTH, HEIGHT))
 
+
 # Room 3 - Word Lock Puzzle
 def word_lock_puzzle():
     word = "ESCAPE"  # The word for the puzzle
@@ -403,6 +404,7 @@ def word_lock_puzzle():
                     user_input = user_input[:-1]  # Remove last character
                 else:
                     user_input += event.unicode  # Add typed character
+
 
 # Game Flow
 intro_screen()
