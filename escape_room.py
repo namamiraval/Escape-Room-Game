@@ -234,6 +234,7 @@ def evolution_puzzle():
                         if clicked_order == correct_order:
                             answer_correct = True  
  
+
 # Room 2 - Riddle Challenge
 def riddle_puzzle():
     question = "I can be cracked, made, told, and played. What am I?"
@@ -318,6 +319,7 @@ def riddle_puzzle():
                         else:
                             error_message = "Wrong answer. Try again."
 
+
 # Room 3 Background
 room3_puzzle = pygame.image.load("room3_puzzle.png")
 room3_puzzle = pygame.transform.scale(room3_puzzle, (WIDTH, HEIGHT))
@@ -325,6 +327,7 @@ room3_puzzle = pygame.transform.scale(room3_puzzle, (WIDTH, HEIGHT))
 '''# List of possible words for the puzzle
 word_choices = ["ESCAPE", "ALIEN", "VOID", "CRYPT", "SPACE"]
 '''
+
 
 # Load the exit door open image
 door_open = pygame.image.load("door_open.png")
