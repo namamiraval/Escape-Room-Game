@@ -21,8 +21,10 @@ HIGHLIGHT = (0, 255, 0)  # Green highlight for selection
 RED = (255, 0, 0)  
 GREEN = (0, 255, 0)
 
+
 # Font settings
 font = pygame.font.Font(None, 40)
+
 
 # Load and resize images
 room1 = pygame.image.load("room1.png")
@@ -36,6 +38,7 @@ room2 = pygame.transform.scale(room2, (WIDTH, HEIGHT))
 
 room2_puzzle = pygame.image.load("room2_puzzle.png")
 room2_puzzle = pygame.transform.scale(room2_puzzle, (WIDTH, HEIGHT))  
+
 
 # Load Evolution Puzzle Images
 human_stages = [
