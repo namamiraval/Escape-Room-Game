@@ -106,7 +106,6 @@ def evolution_puzzle():
                             print("Puzzle Solved! Door Unlocks!")
                             return  
 
-
 # Intro messages
 intro_messages =
 [
@@ -116,7 +115,6 @@ intro_messages =
     "But you know one thing – you need to escape.",
     "You spot a strange alien control panel nearby."
 ]
-
 
 # Display Intro Screen
 def intro_screen():
