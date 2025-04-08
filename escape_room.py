@@ -12,7 +12,6 @@ WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Escape Room - Sci-Fi Horror")
 
-
 # Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -21,10 +20,8 @@ HIGHLIGHT = (0, 255, 0)  # Green highlight for selection
 RED = (255, 0, 0)  
 GREEN = (0, 255, 0)
 
-
 # Font settings
 font = pygame.font.Font(None, 40)
-
 
 # Load and resize images
 room1 = pygame.image.load("room1.png")
