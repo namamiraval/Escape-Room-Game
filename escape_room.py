@@ -24,6 +24,7 @@ GREEN = (0, 255, 0)
 # Font settings
 font = pygame.font.Font(None, 40)
 
+
 # Load and resize images
 room1 = pygame.image.load("room1.png")
 room1 = pygame.transform.scale(room1, (WIDTH, HEIGHT))  
