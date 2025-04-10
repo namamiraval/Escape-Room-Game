@@ -38,7 +38,6 @@ room2 = pygame.transform.scale(room2, (WIDTH, HEIGHT))
 room2_puzzle = pygame.image.load("room2_puzzle.png")
 room2_puzzle = pygame.transform.scale(room2_puzzle, (WIDTH, HEIGHT))  
 
-
 # Load Evolution Puzzle Images
 human_stages = [
     pygame.image.load("stage1_primitive.png"),
