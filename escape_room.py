@@ -395,6 +395,7 @@ def word_lock_puzzle():
                 else:
                     user_input += event.unicode  # Add typed character
 
+
 # Game Flow
 intro_screen()
 evolution_puzzle()
