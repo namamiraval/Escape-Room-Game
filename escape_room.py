@@ -18,7 +18,6 @@ HIGHLIGHT = (0, 255, 0)  # Green highlight for selection
 RED = (255, 0, 0)  
 GREEN = (0, 255, 0)
 
-
 # Font settings
 font = pygame.font.Font(None, 40)
 
@@ -45,7 +44,6 @@ human_stages = [
 
 # Resize images for consistent display
 human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
-
 
 # Evolution Puzzle Images
 def evolution_puzzle():
