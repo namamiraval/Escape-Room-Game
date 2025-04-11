@@ -5,12 +5,10 @@ import time
 # Initialize Pygame
 pygame.init()
 
-
 # Screen settings
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Escape Room - Sci-Fi Horror")
-
 
 # Colors
 WHITE = (255, 255, 255)
