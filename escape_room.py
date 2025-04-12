@@ -232,7 +232,7 @@ def evolution_puzzle(start_ticks):
                             answer_correct = True  
  
 # Room 2 - Riddle Challenge
-def riddle_puzzle():
+def riddle_puzzle(start_ticks):
     question = "I can be cracked, made, told, and played. What am I?"
     options = ["A) A Code", "B) A Joke", "C) A Mirror", "D) A Puzzle"]
     correct_answer = 1  # Correct answer is "B) A Joke"
@@ -295,6 +295,13 @@ def riddle_puzzle():
             pygame.draw.rect(screen, BLACK, error_rect.inflate(40, 20))
             screen.blit(error_text, error_rect)
 
+        if not show_timer(start_ticks):
+            draw_text_box("Time’s up! The alien has recaptured you.", 280, RED)
+            pygame.display.flip()
+            time.sleep(3)
+            pygame.quit()
+            exit()
+
         pygame.display.flip()
 
         # Event handling
@@ -328,7 +335,7 @@ door_open = pygame.image.load("door_open.png")
 door_open = pygame.transform.scale(door_open, (WIDTH, HEIGHT))
 
 # Room 3 - Word Lock Puzzle
-def word_lock_puzzle():
+def word_lock_puzzle(start_ticks):
     word = "ESCAPE"  # The word for the puzzle
     correct_code = sum(ord(char) for char in word)  # ASCII sum
     user_input = ""
@@ -355,6 +362,13 @@ def word_lock_puzzle():
         # Display user input
         input_text = font.render(user_input, True, WHITE)
         screen.blit(input_text, (100, 160))
+
+        if not show_timer(start_ticks):
+            draw_text_box("Time’s up! The alien has recaptured you.", 280, RED)
+            pygame.display.flip()
+            time.sleep(3)
+            pygame.quit()
+            exit()
 
         pygame.display.flip()
 
