@@ -200,6 +200,13 @@ def evolution_puzzle():
             pygame.draw.rect(screen, BLACK, error_rect.inflate(40, 20))
             screen.blit(error_text, error_rect)
 
+        if not show_timer(start_ticks):
+            draw_text_box("Time’s up! The alien has recaptured you.", 280, RED)
+            pygame.display.flip()
+            time.sleep(3)
+            pygame.quit()
+            exit()
+            
         pygame.display.flip()
 
         # Event Handling
