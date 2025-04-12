@@ -29,9 +29,9 @@ def show_timer(start_ticks):
         return False
 
     timer_text = font.render(f"Time Left: {seconds}s", True, HIGHLIGHT)
-    screen.blit(timer_text, (WIDTH - 220, 20))  # Top-right corner
-    #timer_rect = timer_text.get_rect(topright=(WIDTH - 20, 20))  # Push to top-right
-    #screen.blit(timer_text, timer_rect)
+    #screen.blit(timer_text, (WIDTH - 220, 20))  # Top-right corner
+    timer_rect = timer_text.get_rect(topright=(WIDTH - 20, 20))  # Push to top-right
+    screen.blit(timer_text, timer_rect)
     return True
 
 
