@@ -24,16 +24,14 @@ font = pygame.font.Font(None, 40)
 #Timer Settings
 start_ticks = pygame.time.get_ticks()
 def show_timer(start_ticks):
-    seconds = 300 - (pygame.time.get_ticks() - start_ticks) // 1000  # 5 minutes
+    seconds = max(0, 300 - (pygame.time.get_ticks() - start_ticks) // 1000)
     if seconds <= 0:
         return False
 
     timer_text = font.render(f"Time Left: {seconds}s", True, HIGHLIGHT)
-    #screen.blit(timer_text, (WIDTH - 220, 20))  # Top-right corner
-    timer_rect = timer_text.get_rect(topright=(WIDTH - 20, 20))  # Push to top-right
+    timer_rect = timer_text.get_rect(topright=(WIDTH - 20, 20))
     screen.blit(timer_text, timer_rect)
     return True
-
 
 # Load and resize images
 room1 = pygame.image.load("room1.png")
@@ -437,17 +435,9 @@ def show_timer(start_ticks):
     return remaining > 0
 
 # Game Flow
-start_ticks = pygame.time.get_ticks()
 intro_screen()
-#if show_timer(start_ticks):
-    evolution_puzzle(start_ticks)
-#if show_timer(start_ticks):
-    riddle_puzzle(start_ticks)
-#if show_timer(start_ticks):
-    word_lock_puzzle(start_ticks)
-# Game Flow
-#intro_screen()
-#evolution_puzzle()
-#riddle_puzzle()
-#word_lock_puzzle()
+start_ticks = pygame.time.get_ticks()
+evolution_puzzle(start_ticks)
+riddle_puzzle(start_ticks)
+word_lock_puzzle(start_ticks)
 pygame.quit()
