@@ -154,7 +154,7 @@ def intro_screen():
                 waiting = False  
  
 # Room 1 - Evolution Puzzle
-def evolution_puzzle():
+def evolution_puzzle(start_ticks):
     shuffled_positions = [(150, 250), (300, 250), (450, 250), (600, 250)]
     random.shuffle(shuffled_positions)
 
@@ -206,7 +206,7 @@ def evolution_puzzle():
             time.sleep(3)
             pygame.quit()
             exit()
-            
+
         pygame.display.flip()
 
         # Event Handling
