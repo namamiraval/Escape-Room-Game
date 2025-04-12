@@ -22,6 +22,7 @@ GREEN = (0, 255, 0)
 font = pygame.font.Font(None, 40)
 
 #Timer Settings
+start_ticks = pygame.time.get_ticks()
 def show_timer(start_ticks):
     seconds = 300 - (pygame.time.get_ticks() - start_ticks) // 1000  # 5 minutes
     if seconds <= 0:
@@ -29,6 +30,8 @@ def show_timer(start_ticks):
 
     timer_text = font.render(f"Time Left: {seconds}s", True, HIGHLIGHT)
     screen.blit(timer_text, (WIDTH - 220, 20))  # Top-right corner
+    #timer_rect = timer_text.get_rect(topright=(WIDTH - 20, 20))  # Push to top-right
+    #screen.blit(timer_text, timer_rect)
     return True
 
 
