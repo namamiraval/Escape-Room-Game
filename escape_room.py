@@ -21,6 +21,17 @@ GREEN = (0, 255, 0)
 # Font settings
 font = pygame.font.Font(None, 40)
 
+#Timer Settings
+def show_timer(start_ticks):
+    seconds = 300 - (pygame.time.get_ticks() - start_ticks) // 1000  # 5 minutes
+    if seconds <= 0:
+        return False
+
+    timer_text = font.render(f"Time Left: {seconds}s", True, HIGHLIGHT)
+    screen.blit(timer_text, (WIDTH - 220, 20))  # Top-right corner
+    return True
+
+
 # Load and resize images
 room1 = pygame.image.load("room1.png")
 room1 = pygame.transform.scale(room1, (WIDTH, HEIGHT))  
