@@ -370,6 +370,7 @@ def word_lock_puzzle():
                         # Display the exit door open image
                         screen.fill(BLACK)
                         screen.blit(door_open, (0, 0))
+                        draw_text_box("You Escaped Successfully!", 100, HIGHLIGHT)
                         pygame.display.flip()
                         pygame.time.delay(3000)  
 
@@ -391,10 +392,27 @@ def word_lock_puzzle():
                 else:
                     user_input += event.unicode  # Add typed character
 
+def show_timer(start_ticks):
+    elapsed = (pygame.time.get_ticks() - start_ticks) / 1000
+    remaining = max(0, int(START_TIME - elapsed))
+    mins = remaining // 60
+    secs = remaining % 60
+    timer_text = font.render(f"Time Left: {mins:02d}:{secs:02d}", True, RED)
+    screen.blit(timer_text, (WIDTH - 200, 20))
+    return remaining > 0
 
 # Game Flow
+start_ticks = pygame.time.get_ticks()
 intro_screen()
-evolution_puzzle()
-riddle_puzzle()
-word_lock_puzzle()
+if show_timer(start_ticks):
+    evolution_puzzle()
+if show_timer(start_ticks):
+    riddle_puzzle()
+if show_timer(start_ticks):
+    word_lock_puzzle()
+# Game Flow
+#intro_screen()
+#evolution_puzzle()
+#riddle_puzzle()
+#word_lock_puzzle()
 pygame.quit()
