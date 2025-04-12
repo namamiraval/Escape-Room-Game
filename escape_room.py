@@ -21,6 +21,14 @@ GREEN = (0, 255, 0)
 # Font settings
 font = pygame.font.Font(None, 40)
 
+def draw_text_box(message, y_pos, color):
+    text_surface = font.render(message, True, color)
+    text_rect = text_surface.get_rect(center=(WIDTH // 2, y_pos))
+    box_rect = text_rect.inflate(40, 20)
+    pygame.draw.rect(screen, BLACK, box_rect)
+    screen.blit(text_surface, text_rect)
+
+
 #Timer Settings
 start_ticks = pygame.time.get_ticks()
 def show_timer(start_ticks):
@@ -282,6 +290,66 @@ def riddle_puzzle(start_ticks):
                             answer_correct = True  
                         else:
                             error_message = "Wrong answer. Try again."
+                            pygame.draw.rect(screen, BLACK, box_rect)  # Background for text
+            screen.blit(option_text, option_rect)
+
+        # Display success message
+        if answer_correct:
+            success_text = font.render("Correct! You’ve unlocked the next chamber!", True, HIGHLIGHT)
+            success_rect = success_text.get_rect(center=(WIDTH // 2, HEIGHT - 60))
+            pygame.draw.rect(screen, BLACK, success_rect.inflate(40, 20))
+            screen.blit(success_text, success_rect)
+            pygame.display.flip()
+            time.sleep(2)
+            return  # Move to next room
+            pygame.draw.rect(screen, BLACK, box_rect)  # Background for text
+            screen.blit(option_text, option_rect)
+
+        # Display success message
+        if answer_correct:
+            success_text = font.render("Correct! You’ve unlocked the next chamber!", True, HIGHLIGHT)
+            success_rect = success_text.get_rect(center=(WIDTH // 2, HEIGHT - 60))
+            pygame.draw.rect(screen, BLACK, success_rect.inflate(40, 20))
+            screen.blit(success_text, success_rect)
+            pygame.display.flip()
+            time.sleep(2)
+            return  # Move to next room
+
+        # Error message
+        if error_message:
+            error_text = font.render(error_message, True, RED)
+            error_rect = error_text.get_rect(center=(WIDTH // 2, HEIGHT - 60))
+            pygame.draw.rect(screen, BLACK, error_rect.inflate(40, 20))
+            screen.blit(error_text, error_rect)
+
+        if not show_timer(start_ticks):
+            draw_text_box("Time’s up! The alien has recaptured you.", 280, RED)
+            pygame.display.flip()
+            time.sleep(3)
+            pygame.quit()
+            exit()
+
+        show_timer(start_ticks)
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = event.pos
+                for i, pos in enumerate(option_positions):
+                    option_rect = pygame.Rect(
+                        pos[0] - 150, pos[1] - 30, 300, 60
+                    )  # Approximation of box for click
+                    if option_rect.collidepoint(x, y):
+                        selected_option = i
+                        if i == correct_answer:
+                            answer_correct = True
+                        else:
+                            error_message = "Wrong answer. Think harder!"
+                            selected_option = None
 
 # Room 3 Background
 room3_puzzle = pygame.image.load("room3_puzzle.png")
@@ -386,9 +454,26 @@ def show_timer(start_ticks):
     return remaining > 0
 
 # Game Flow
-intro_screen()
-start_ticks = pygame.time.get_ticks()
-evolution_puzzle(start_ticks)
-riddle_puzzle(start_ticks)
-word_lock_puzzle(start_ticks)
-pygame.quit()
+def main():
+    intro_screen()
+    evolution_puzzle(start_ticks)
+    riddle_puzzle(start_ticks)
+    word_lock_puzzle(start_ticks)
+    # Add third room or ending screen later
+    screen.fill(BLACK)
+    final_text = font.render("You survived... for now.", True, GREEN)
+    final_rect = final_text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
+    screen.blit(final_text, final_rect)
+    pygame.display.flip()
+    time.sleep(4)
+    pygame.quit()
+
+if __name__ == "__main__":
+    main()
+
+#intro_screen()
+#tart_ticks = pygame.time.get_ticks()
+#evolution_puzzle(start_ticks)
+#riddle_puzzle(start_ticks)
+#word_lock_puzzle(start_ticks)
+#pygame.quit()
