@@ -48,71 +48,6 @@ room2 = pygame.transform.scale(room2, (WIDTH, HEIGHT))
 room2_puzzle = pygame.image.load("room2_puzzle.png")
 room2_puzzle = pygame.transform.scale(room2_puzzle, (WIDTH, HEIGHT))  
 
-# Load Evolution Puzzle Images
-human_stages = [
-    pygame.image.load("stage1_primitive.png"),
-    pygame.image.load("stage2_modern.png"),
-    pygame.image.load("stage3_mutated.png"),
-    pygame.image.load("stage4_alien.png"),
-]
-
-# Resize images for consistent display
-human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
-
-# Evolution Puzzle Images
-def evolution_puzzle():
-    shuffled_positions = [(150, 250), (300, 250), (450, 250), (600, 250)]
-    random.shuffle(shuffled_positions)
-    correct_order = [0, 1, 2, 3]  
-    clicked_order = []
-
-    running = True
-    while running:
-        screen.fill(BLACK)
-        screen.blit(room1_puzzle, (0, 0))  
-
-        # Draw black semi-transparent box for text
-        rect_surface = pygame.Surface((700, 60))  
-        rect_surface.set_alpha(200)  
-        rect_surface.fill(BLACK)
-        screen.blit(rect_surface, (50, 50))  # Positioned at the top
-
-        # Render text
-        text = font.render("Click the images in the correct order of human evolution.", True, BLUE)
-        text_rect = text.get_rect(center=(WIDTH // 2, 80))
-        screen.blit(text, text_rect)
-
-        positions_dict = {}
-        for i, pos in enumerate(shuffled_positions):
-            screen.blit(human_stages[i], pos)
-            positions_dict[i] = pos  
-
-            if i in clicked_order:
-                pygame.draw.rect(screen, HIGHLIGHT, (pos[0] - 5, pos[1] - 5, 130, 170), 3)  
-
-        pygame.display.flip()
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                exit()
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                x, y = event.pos
-
-                for i, pos in positions_dict.items():
-                    rect = pygame.Rect(pos[0], pos[1], 120, 160)
-                    if rect.collidepoint(x, y) and i not in clicked_order:
-                        clicked_order.append(i)
-
-                        if clicked_order != correct_order[: len(clicked_order)]:
-                            clicked_order = []
-                            break
-
-                        if clicked_order == correct_order:
-                            print("Puzzle Solved! Door Unlocks!")
-                            return  
-
 # Intro messages
 intro_messages =
 [
@@ -166,7 +101,72 @@ def intro_screen():
                 exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 waiting = False  
- 
+
+# Load Evolution Puzzle Images
+human_stages = [
+    pygame.image.load("stage1_primitive.png"),
+    pygame.image.load("stage2_modern.png"),
+    pygame.image.load("stage3_mutated.png"),
+    pygame.image.load("stage4_alien.png"),
+]
+
+# Resize images for consistent display
+human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
+
+# Evolution Puzzle Images
+def evolution_puzzle(start_ticks):
+    shuffled_positions = [(150, 250), (300, 250), (450, 250), (600, 250)]
+    random.shuffle(shuffled_positions)
+    correct_order = [0, 1, 2, 3]  
+    clicked_order = []
+
+    running = True
+    while running:
+        screen.fill(BLACK)
+        screen.blit(room1_puzzle, (0, 0))  
+
+        # Draw black semi-transparent box for text
+        rect_surface = pygame.Surface((700, 60))  
+        rect_surface.set_alpha(200)  
+        rect_surface.fill(BLACK)
+        screen.blit(rect_surface, (50, 50))  # Positioned at the top
+
+        # Render text
+        text = font.render("Click the images in the correct order of human evolution.", True, BLUE)
+        text_rect = text.get_rect(center=(WIDTH // 2, 80))
+        screen.blit(text, text_rect)
+
+        positions_dict = {}
+        for i, pos in enumerate(shuffled_positions):
+            screen.blit(human_stages[i], pos)
+            positions_dict[i] = pos  
+
+            if i in clicked_order:
+                pygame.draw.rect(screen, HIGHLIGHT, (pos[0] - 5, pos[1] - 5, 130, 170), 3)  
+
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                x, y = event.pos
+
+                for i, pos in positions_dict.items():
+                    rect = pygame.Rect(pos[0], pos[1], 120, 160)
+                    if rect.collidepoint(x, y) and i not in clicked_order:
+                        clicked_order.append(i)
+
+                        if clicked_order != correct_order[: len(clicked_order)]:
+                            clicked_order = []
+                            break
+
+                        if clicked_order == correct_order:
+                            print("Puzzle Solved! Door Unlocks!")
+                            return  
+
 # Room 1 - Evolution Puzzle
 def evolution_puzzle(start_ticks):
     shuffled_positions = [(150, 250), (300, 250), (450, 250), (600, 250)]
@@ -439,12 +439,12 @@ def show_timer(start_ticks):
 # Game Flow
 start_ticks = pygame.time.get_ticks()
 intro_screen()
-if show_timer(start_ticks):
-    evolution_puzzle()
-if show_timer(start_ticks):
-    riddle_puzzle()
-if show_timer(start_ticks):
-    word_lock_puzzle()
+#if show_timer(start_ticks):
+    evolution_puzzle(start_ticks)
+#if show_timer(start_ticks):
+    riddle_puzzle(start_ticks)
+#if show_timer(start_ticks):
+    word_lock_puzzle(start_ticks)
 # Game Flow
 #intro_screen()
 #evolution_puzzle()
