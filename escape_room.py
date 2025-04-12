@@ -164,6 +164,8 @@ def evolution_puzzle(start_ticks):
             pygame.quit()
             exit()
 
+        show_timer(start_ticks)  # <== This actually draws the timer on screen
+
         pygame.display.flip()
 
         # Event Handling
@@ -259,6 +261,8 @@ def riddle_puzzle(start_ticks):
             pygame.quit()
             exit()
 
+        show_timer(start_ticks)  # <== This actually draws the timer on screen
+
         pygame.display.flip()
 
         # Event handling
@@ -326,6 +330,8 @@ def word_lock_puzzle(start_ticks):
             time.sleep(3)
             pygame.quit()
             exit()
+
+        show_timer(start_ticks)  # <== This actually draws the timer on screen
 
         pygame.display.flip()
 
