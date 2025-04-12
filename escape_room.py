@@ -99,14 +99,14 @@ def intro_screen():
     
     pygame.display.flip()
 
-    waiting = True
-    while waiting:
+    x = True
+    while x:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
-                waiting = False  
+                x = False  
 
 # Load Evolution Puzzle Images
 human_stages = [
@@ -120,7 +120,7 @@ human_stages = [
 human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
 
 # Room 1 - Evolution Puzzle
-def evolution_puzzle(start_ticks):
+def evolution_puzzle():
     shuffled_positions = [(150, 250), (300, 250), (450, 250), (600, 250)]
     random.shuffle(shuffled_positions)
     correct_order = [0, 1, 2, 3]  # Correct order of human evolution
