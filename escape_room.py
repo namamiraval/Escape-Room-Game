@@ -42,8 +42,7 @@ room2_puzzle = pygame.image.load("room2_puzzle.png")
 room2_puzzle = pygame.transform.scale(room2_puzzle, (WIDTH, HEIGHT))  
 
 # Intro messages
-intro_messages =
-[
+intro_messages =[
     "You wake up in a cold, sterile room.",
     "Your head is spinning. The air smells metallic.",
     "You have no memory of how you got here...",
@@ -124,7 +123,7 @@ def evolution_puzzle():
 
         # Display Success Message
         if answer_correct:
-            success_text = font.render("Correct! The door unlocks!", True, HIGHLIGHT)
+            success_text = font.render("Correct! You’ve unlocked the next chamber!", True, HIGHLIGHT)
             success_rect = success_text.get_rect(center=(WIDTH // 2, HEIGHT - 100))
             pygame.draw.rect(screen, BLACK, success_rect.inflate(40, 20))
             screen.blit(success_text, success_rect)
@@ -212,7 +211,7 @@ def riddle_puzzle():
 
         # Display Success Message
         if answer_correct:
-            success_text = font.render("Correct! You’ve unlocked the next chamber!", True, HIGHLIGHT)
+            success_text = font.render("Correct! You’ve unlocked the last chamber!", True, HIGHLIGHT)
             success_rect = success_text.get_rect(center=(WIDTH // 2, HEIGHT - 100))
             pygame.draw.rect(screen, BLACK, success_rect.inflate(40, 20))
             screen.blit(success_text, success_rect)
