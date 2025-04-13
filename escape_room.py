@@ -324,7 +324,8 @@ def word_lock_puzzle():
                         # Display the exit door open image
                         screen.fill(BLACK)
                         screen.blit(door_open, (0, 0))
-                        draw_text_box("You Escaped Successfully!", 100, HIGHLIGHT)
+                        msg_text = font.render("You Escaped Successfully!", True, BLUE)
+                        screen.blit(msg_text, (120, 270))
                         pygame.display.flip()
                         pygame.time.delay(3000)  
 
@@ -354,6 +355,8 @@ def main():
     word_lock_puzzle()
     # Add third room or ending screen later
     screen.fill(BLACK)
+    msg_text = font.render("Incorrect Code. Try Again.", True, BLUE)
+                        screen.blit(msg_text, (120, 270))
     final_text = font.render("You survived... for now.", True, GREEN)
     final_rect = final_text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
     screen.blit(final_text, final_rect)
