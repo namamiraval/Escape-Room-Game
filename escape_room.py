@@ -258,23 +258,9 @@ def riddle_puzzle():
                         if i == correct_answer:
                             answer_correct = True  
                         else:
-                            error_message = "Wrong answer. Try again."
+                            error_message = "Wrong answer. Think harder!"
                             pygame.draw.rect(screen, BLACK, box_rect)  # Background for text
             screen.blit(option_text, option_rect)
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                x, y = event.pos
-                for i, pos in enumerate(option_positions):
-                    option_rect = pygame.Rect(
-                        pos[0] - 150, pos[1] - 30, 300, 60
-                    )  # Approximation of box for click
-                    if option_rect.collidepoint(x, y):
-                        selected_option = i
-                        if i == correct_answer:
-                            answer_correct = True
-                        else:
-                            error_message = "Wrong answer. Think harder!"
-                            selected_option = None
 
 # Room 3 Background
 room3_puzzle = pygame.image.load("room3_puzzle.png")
