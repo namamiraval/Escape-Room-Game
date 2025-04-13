@@ -225,13 +225,13 @@ def riddle_puzzle():
 
         # Display Success Message
         if answer_correct:
-            success_text = font.render("Correct! The door unlocks!", True, HIGHLIGHT)
+            success_text = font.render("Correct! You’ve unlocked the next chamber!", True, HIGHLIGHT)
             success_rect = success_text.get_rect(center=(WIDTH // 2, HEIGHT - 100))
             pygame.draw.rect(screen, BLACK, success_rect.inflate(40, 20))
             screen.blit(success_text, success_rect)
             pygame.display.flip()
             time.sleep(2)  # Show message for 2 seconds
-            return  
+            return         
 
         # Display Error Message
         if error_message:
@@ -261,42 +261,6 @@ def riddle_puzzle():
                             error_message = "Wrong answer. Try again."
                             pygame.draw.rect(screen, BLACK, box_rect)  # Background for text
             screen.blit(option_text, option_rect)
-
-        # Display success message
-        if answer_correct:
-            success_text = font.render("Correct! You’ve unlocked the next chamber!", True, HIGHLIGHT)
-            success_rect = success_text.get_rect(center=(WIDTH // 2, HEIGHT - 60))
-            pygame.draw.rect(screen, BLACK, success_rect.inflate(40, 20))
-            screen.blit(success_text, success_rect)
-            pygame.display.flip()
-            time.sleep(2)
-            return  # Move to next room
-            pygame.draw.rect(screen, BLACK, box_rect)  # Background for text
-            screen.blit(option_text, option_rect)
-
-        # Display success message
-        if answer_correct:
-            success_text = font.render("Correct! You’ve unlocked the next chamber!", True, HIGHLIGHT)
-            success_rect = success_text.get_rect(center=(WIDTH // 2, HEIGHT - 60))
-            pygame.draw.rect(screen, BLACK, success_rect.inflate(40, 20))
-            screen.blit(success_text, success_rect)
-            pygame.display.flip()
-            time.sleep(2)
-            return  # Move to next room
-
-        # Error message
-        if error_message:
-            error_text = font.render(error_message, True, RED)
-            error_rect = error_text.get_rect(center=(WIDTH // 2, HEIGHT - 60))
-            pygame.draw.rect(screen, BLACK, error_rect.inflate(40, 20))
-            screen.blit(error_text, error_rect)
-
-        pygame.display.flip()
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                exit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = event.pos
