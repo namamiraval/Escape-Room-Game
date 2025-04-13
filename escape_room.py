@@ -28,19 +28,6 @@ def draw_text_box(message, y_pos, color):
     pygame.draw.rect(screen, BLACK, box_rect)
     screen.blit(text_surface, text_rect)
 
-
-#Timer Settings
-start_ticks = pygame.time.get_ticks()
-def show_timer(start_ticks):
-    seconds = max(0, 300 - (pygame.time.get_ticks() - start_ticks) // 1000)
-    if seconds <= 0:
-        return False
-
-    timer_text = font.render(f"Time Left: {seconds}s", True, HIGHLIGHT)
-    timer_rect = timer_text.get_rect(topright=(WIDTH - 20, 20))
-    screen.blit(timer_text, timer_rect)
-    return True
-
 # Load and resize images
 room1 = pygame.image.load("room1.png")
 room1 = pygame.transform.scale(room1, (WIDTH, HEIGHT))  
@@ -165,15 +152,6 @@ def evolution_puzzle():
             pygame.draw.rect(screen, BLACK, error_rect.inflate(40, 20))
             screen.blit(error_text, error_rect)
 
-        if not show_timer(start_ticks):
-            draw_text_box("Time’s up! The alien has recaptured you.", 280, RED)
-            pygame.display.flip()
-            time.sleep(3)
-            pygame.quit()
-            exit()
-
-        show_timer(start_ticks)  # <== This actually draws the timer on screen
-
         pygame.display.flip()
 
         # Event Handling
@@ -199,10 +177,10 @@ def evolution_puzzle():
                             answer_correct = True  
  
 # Room 2 - Riddle Challenge
-def riddle_puzzle(start_ticks):
+def riddle_puzzle():
     question = "I can be cracked, made, told, and played. What am I?"
     options = ["A) A Code", "B) A Joke", "C) A Mirror", "D) A Puzzle"]
-    correct_answer = 1  # Correct answer is "B) A Joke"
+    correct_answer = 1  
 
     selected_option = None
     answer_correct = False
@@ -262,15 +240,6 @@ def riddle_puzzle(start_ticks):
             pygame.draw.rect(screen, BLACK, error_rect.inflate(40, 20))
             screen.blit(error_text, error_rect)
 
-        if not show_timer(start_ticks):
-            draw_text_box("Time’s up! The alien has recaptured you.", 280, RED)
-            pygame.display.flip()
-            time.sleep(3)
-            pygame.quit()
-            exit()
-
-        show_timer(start_ticks)  # <== This actually draws the timer on screen
-
         pygame.display.flip()
 
         # Event handling
@@ -322,14 +291,6 @@ def riddle_puzzle(start_ticks):
             pygame.draw.rect(screen, BLACK, error_rect.inflate(40, 20))
             screen.blit(error_text, error_rect)
 
-        if not show_timer(start_ticks):
-            draw_text_box("Time’s up! The alien has recaptured you.", 280, RED)
-            pygame.display.flip()
-            time.sleep(3)
-            pygame.quit()
-            exit()
-
-        show_timer(start_ticks)
         pygame.display.flip()
 
         for event in pygame.event.get():
@@ -364,7 +325,7 @@ door_open = pygame.image.load("door_open.png")
 door_open = pygame.transform.scale(door_open, (WIDTH, HEIGHT))
 
 # Room 3 - Word Lock Puzzle
-def word_lock_puzzle(start_ticks):
+def word_lock_puzzle():
     word = "ESCAPE"  # The word for the puzzle
     correct_code = sum(ord(char) for char in word)  # ASCII sum
     user_input = ""
@@ -391,15 +352,6 @@ def word_lock_puzzle(start_ticks):
         # Display user input
         input_text = font.render(user_input, True, WHITE)
         screen.blit(input_text, (100, 160))
-
-        if not show_timer(start_ticks):
-            draw_text_box("Time’s up! The alien has recaptured you.", 280, RED)
-            pygame.display.flip()
-            time.sleep(3)
-            pygame.quit()
-            exit()
-
-        show_timer(start_ticks)  # <== This actually draws the timer on screen
 
         pygame.display.flip()
 
@@ -444,21 +396,12 @@ def word_lock_puzzle(start_ticks):
                 else:
                     user_input += event.unicode  # Add typed character
 
-def show_timer(start_ticks):
-    elapsed = (pygame.time.get_ticks() - start_ticks) / 1000
-    remaining = max(0, int(START_TIME - elapsed))
-    mins = remaining // 60
-    secs = remaining % 60
-    timer_text = font.render(f"Time Left: {mins:02d}:{secs:02d}", True, RED)
-    screen.blit(timer_text, (WIDTH - 200, 20))
-    return remaining > 0
-
 # Game Flow
 def main():
     intro_screen()
-    evolution_puzzle(start_ticks)
-    riddle_puzzle(start_ticks)
-    word_lock_puzzle(start_ticks)
+    evolution_puzzle()
+    riddle_puzzle()
+    word_lock_puzzle()
     # Add third room or ending screen later
     screen.fill(BLACK)
     final_text = font.render("You survived... for now.", True, GREEN)
