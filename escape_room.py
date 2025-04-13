@@ -72,17 +72,17 @@ def intro_screen():
         time.sleep(5)
 
     # Final instruction
-    screen.fill(BLACK)
-    screen.blit(room1, (0, 0))
+    #screen.fill(BLACK)
+    #screen.blit(room1, (0, 0))
 
-    rect_surface = pygame.Surface((300, 50))
-    rect_surface.set_alpha(200)
-    rect_surface.fill(BLACK)
-    screen.blit(rect_surface, (WIDTH // 2 - 150, HEIGHT // 2 + 30))
+    #rect_surface = pygame.Surface((300, 50))
+    #rect_surface.set_alpha(200)
+    #rect_surface.fill(BLACK)
+    #screen.blit(rect_surface, (WIDTH // 2 - 150, HEIGHT // 2 + 30))
 
-    text = font.render("Click to Continue", True, BLUE)
-    text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 50))
-    screen.blit(text, text_rect)
+    #text = font.render("Click to Continue", True, BLUE)
+    #text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 50))
+    #screen.blit(text, text_rect)
     
     pygame.display.flip()
 
