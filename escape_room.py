@@ -56,6 +56,7 @@ intro_messages =[
     "You spot a strange alien control panel nearby."
 ]
 
+
 # Display Intro Screen
 def intro_screen():
     for message in intro_messages:
@@ -87,6 +88,7 @@ def intro_screen():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x = False  
 
+
 # Load Evolution Puzzle Images
 human_stages = [
     pygame.image.load("stage1_primitive.png"),
@@ -94,6 +96,7 @@ human_stages = [
     pygame.image.load("stage3_mutated.png"),
     pygame.image.load("stage4_alien.png"),
 ]
+
 
 # Resize images for consistent display
 human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
