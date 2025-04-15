@@ -273,6 +273,7 @@ word_choices = ["ESCAPE", "ALIEN", "VOID", "CRYPT", "SPACE"]
 door_open = pygame.image.load("door_open.png")
 door_open = pygame.transform.scale(door_open, (WIDTH, HEIGHT))
 
+
 # Room 3 - Word Lock Puzzle
 def word_lock_puzzle():
     word = "ESCAPE"  # The word for the puzzle
