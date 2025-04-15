@@ -259,6 +259,7 @@ def riddle_puzzle():
                             pygame.draw.rect(screen, BLACK, box_rect)  # Background for text
             screen.blit(option_text, option_rect)
 
+
 # Room 3 Background
 room3_puzzle = pygame.image.load("room3_puzzle.png")
 room3_puzzle = pygame.transform.scale(room3_puzzle, (WIDTH, HEIGHT))
@@ -266,6 +267,7 @@ room3_puzzle = pygame.transform.scale(room3_puzzle, (WIDTH, HEIGHT))
 '''# List of possible words for the puzzle
 word_choices = ["ESCAPE", "ALIEN", "VOID", "CRYPT", "SPACE"]
 '''
+
 
 # Load the exit door open image
 door_open = pygame.image.load("door_open.png")
