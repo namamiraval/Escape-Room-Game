@@ -101,6 +101,7 @@ human_stages = [
 # Resize images for consistent display
 human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
 
+
 # Room 1 - Evolution Puzzle
 def evolution_puzzle():
     shuffled_positions = [(150, 250), (300, 250), (450, 250), (600, 250)]
@@ -170,7 +171,8 @@ def evolution_puzzle():
 
                         if clicked_order == correct_order:
                             answer_correct = True  
- 
+
+
 # Room 2 - Riddle Challenge
 def riddle_puzzle():
     question = "I can be cracked, made, told, and played. What am I?"
