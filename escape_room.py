@@ -89,10 +89,8 @@ human_stages = [
     pygame.image.load("stage4_alien.png"),
 ]
 
-
 # Resize images for consistent display
 human_stages = [pygame.transform.scale(img, (120, 160)) for img in human_stages]
-
 
 # Room 1 - Evolution Puzzle
 def evolution_puzzle():
