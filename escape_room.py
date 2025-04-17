@@ -51,7 +51,6 @@ intro_messages =[
     "You spot a strange alien control panel nearby."
 ]
 
-
 # Display Intro Screen
 def intro_screen():
     for message in intro_messages:
