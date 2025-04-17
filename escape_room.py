@@ -162,7 +162,6 @@ def evolution_puzzle():
                         if clicked_order == correct_order:
                             answer_correct = True  
 
-
 # Room 2 - Riddle Challenge
 def riddle_puzzle():
     question = "I can be cracked, made, told, and played. What am I?"
