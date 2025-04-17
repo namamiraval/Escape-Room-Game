@@ -248,7 +248,6 @@ def riddle_puzzle():
                             pygame.draw.rect(screen, BLACK, box_rect)  # Background for text
             screen.blit(option_text, option_rect)
 
-
 # Room 3 Background
 room3_puzzle = pygame.image.load("room3_puzzle.png")
 room3_puzzle = pygame.transform.scale(room3_puzzle, (WIDTH, HEIGHT))
