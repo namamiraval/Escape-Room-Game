@@ -28,7 +28,6 @@ def draw_text_box(message, y_pos, color):
     pygame.draw.rect(screen, BLACK, box_rect)
     screen.blit(text_surface, text_rect)
 
-
 # Load and resize images
 room1 = pygame.image.load("room1.png")
 room1 = pygame.transform.scale(room1, (WIDTH, HEIGHT))  
