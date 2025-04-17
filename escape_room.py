@@ -81,7 +81,6 @@ def intro_screen():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x = False  
 
-
 # Load Evolution Puzzle Images
 human_stages = [
     pygame.image.load("stage1_primitive.png"),
