@@ -41,7 +41,6 @@ room2 = pygame.transform.scale(room2, (WIDTH, HEIGHT))
 room2_puzzle = pygame.image.load("room2_puzzle.png")
 room2_puzzle = pygame.transform.scale(room2_puzzle, (WIDTH, HEIGHT))  
 
-
 # Intro messages
 intro_messages =[
     "You wake up in a cold, sterile room.",
