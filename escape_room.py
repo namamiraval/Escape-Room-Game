@@ -21,6 +21,7 @@ HIGHLIGHT = (0, 255, 0)  # Green highlight for selection
 RED = (255, 0, 0)  
 GREEN = (0, 255, 0)
 
+
 # Font settings
 font = pygame.font.Font(None, 40)
 
