@@ -174,6 +174,7 @@ def riddle_puzzle():
     answer_correct = False
     error_message = ""
 
+
     running = True
     while running:
         screen.fill(BLACK)
