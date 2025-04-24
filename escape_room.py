@@ -169,6 +169,7 @@ def riddle_puzzle():
     options = ["A) A Code", "B) A Joke", "C) A Mirror", "D) A Puzzle"]
     correct_answer = 1  
 
+
     selected_option = None
     answer_correct = False
     error_message = ""
