@@ -162,18 +162,15 @@ def evolution_puzzle():
                         if clicked_order == correct_order:
                             answer_correct = True  
 
-
 # Room 2 - Riddle Challenge
 def riddle_puzzle():
     question = "I can be cracked, made, told, and played. What am I?"
     options = ["A) A Code", "B) A Joke", "C) A Mirror", "D) A Puzzle"]
     correct_answer = 1  
 
-
     selected_option = None
     answer_correct = False
     error_message = ""
-
 
     running = True
     while running:
