@@ -1,1 +1,1 @@
-Update #1 to README.md in Escape-Room-Game
+Update #2 to README.md in Escape-Room-Game
