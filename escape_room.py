@@ -29,6 +29,7 @@ GREEN = (0, 255, 0)
 
 
 # Font settings
+
 font = pygame.font.Font(None, 40)
 
 def draw_text_box(message, y_pos, color):
