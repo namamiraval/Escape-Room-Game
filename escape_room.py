@@ -32,7 +32,9 @@ GREEN = (0, 255, 0)
 
 font = pygame.font.Font(None, 40)
 
+
 def draw_text_box(message, y_pos, color):
+    
     text_surface = font.render(message, True, color)
     text_rect = text_surface.get_rect(center=(WIDTH // 2, y_pos))
     box_rect = text_rect.inflate(40, 20)
