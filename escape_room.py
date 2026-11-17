@@ -53,6 +53,7 @@ room1 = pygame.image.load("room1.png")
 room1 = pygame.transform.scale(room1, (WIDTH, HEIGHT))  
 
 room1_puzzle = pygame.image.load("room1_puzzle.png")
+
 room1_puzzle = pygame.transform.scale(room1_puzzle, (WIDTH, HEIGHT))  
 
 room2 = pygame.image.load("room2.png")
