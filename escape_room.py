@@ -49,6 +49,7 @@ def draw_text_box(message, y_pos, color):
 # Load and resize images
 
 room1 = pygame.image.load("room1.png")
+
 room1 = pygame.transform.scale(room1, (WIDTH, HEIGHT))  
 
 room1_puzzle = pygame.image.load("room1_puzzle.png")
