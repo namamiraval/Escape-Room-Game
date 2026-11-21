@@ -66,6 +66,7 @@ room2_puzzle = pygame.transform.scale(room2_puzzle, (WIDTH, HEIGHT))
 
 
 # Intro messages
+
 intro_messages =[
     "You wake up in a cold, sterile room.",
     "Your head is spinning. The air smells metallic.",
